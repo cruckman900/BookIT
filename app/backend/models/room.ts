@@ -40,6 +40,7 @@ export interface IRoom extends Document {
     category: string,
     reviews: IReview[],
     user: mongoose.Schema.Types.ObjectId,
+    createdAt: Date,
 };
 
 const roomSchema: Schema = new Schema({
@@ -160,3 +161,5 @@ const roomSchema: Schema = new Schema({
         default: Date.now,
     },
 });
+
+export default mongoose.models.Room || mongoose.model<IRoom>("Room", roomSchema);
