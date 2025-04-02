@@ -45,26 +45,26 @@ var seedRooms = function () { return __awaiter(void 0, void 0, void 0, function 
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 4, , 5]);
                 return [4 /*yield*/, mongoose_1.default.connect("mongodb://127.0.0.1:27017/bookit")];
             case 1:
                 _a.sent();
-                // await Room.deleteMany();
-                // console.log("Rooms are deleted.");
-                return [4 /*yield*/, room_1.default.insertMany(data_1.rooms)];
+                return [4 /*yield*/, room_1.default.deleteMany()];
             case 2:
-                // await Room.deleteMany();
-                // console.log("Rooms are deleted.");
+                _a.sent();
+                console.log("Rooms are deleted.");
+                return [4 /*yield*/, room_1.default.insertMany(data_1.rooms)];
+            case 3:
                 _a.sent();
                 console.log("Rooms are added.");
                 process.exit();
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
                 error_1 = _a.sent();
                 console.log(error_1);
                 process.exit();
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
