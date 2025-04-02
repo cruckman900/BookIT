@@ -1,5 +1,5 @@
-import Room from "../app/backend/models/room";
-import mongoose from "mongoose";
+import Room, { IRoom } from "../app/backend/models/room";
+import mongoose, { Model } from "mongoose";
 import { rooms } from "./data";
 // require("dotenv").config({ path: 'next.config.js });
 
@@ -8,10 +8,12 @@ const seedRooms = async () => {
     try {
         await mongoose.connect("mongodb://127.0.0.1:27017/bookit");
     
-        await Room.deleteMany();
+        const RoomModel = Room as Model<IRoom >
+
+        await RoomModel.deleteMany();
         console.log("Rooms are deleted.");
 
-        await Room.insertMany(rooms);
+        await RoomModel.insertMany(rooms);
         console.log("Rooms are added.")
 
         process.exit();
