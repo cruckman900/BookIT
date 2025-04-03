@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-type HandlerFunction = (req: NextRequest, params: any) => Promise<NextResponse>
+type HandlerFunction = (req: NextRequest, params: any) => Promise<NextResponse>;
 
 interface IValidationError {
-    message: string
-}
+    message: string,
+};
 
 export const catchAsyncErrors = (handler: HandlerFunction) => async(req: NextRequest, params: any) => {
     try {
@@ -19,7 +19,9 @@ export const catchAsyncErrors = (handler: HandlerFunction) => async(req: NextReq
 
         if (error?.name === 'ValidationError') {
             error.message = Object.values<IValidationError>(error.errors).map((value) => value.message);
+            error.statusCode = 400;
         }
+
         return NextResponse.json(
             {
                 message: error.message,
@@ -27,4 +29,4 @@ export const catchAsyncErrors = (handler: HandlerFunction) => async(req: NextReq
             { status: error.statusCode || 500 }
         );
     }
-}
+};
