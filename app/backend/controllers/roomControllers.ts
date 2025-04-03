@@ -49,10 +49,10 @@ export const getRoomDetails = async (req: NextRequest, { params }: { params: { i
 
 // Update room details  =>  /api/rooms/:id
 export const updateRoom = async (req: NextRequest, { params }: { params: { id: string } }) => {
-    const { id } = params;
+    const { id } = await params;
 
     let room = await Room.findById(id);
-    const body = req.json();
+    const body = await req.json();
 
     if (!room) {
         return NextResponse.json(
