@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Room from "../models/room";
+import ErrorHandler from "../utils/errorHandler";
+import { catchAsyncErrors } from "../middlewares/catchAsyncErrors";
 
 // Get all rooms  =>  //api/rooms
 export const allRooms = async (req: NextRequest) => {
@@ -27,7 +29,7 @@ export const newRoom = async (req: NextRequest) => {
 };
 
 // Get room details  =>  /api/rooms/:id
-export const getRoomDetails = async (req: NextRequest, { params }: { params: { id: string } }) => {
+export const getRoomDetails = catchAsyncErrors(async (req: NextRequest, { params }: { params: { id: string } }) => {
     const { id } = await params;
 
     const room = await Room.findById(id);
@@ -45,7 +47,7 @@ export const getRoomDetails = async (req: NextRequest, { params }: { params: { i
         success: true,
         room,
     });
-};
+});
 
 // Update room details  =>  /api/admin/rooms/:id
 export const updateRoom = async (req: NextRequest, { params }: { params: { id: string } }) => {
