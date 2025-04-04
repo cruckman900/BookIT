@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { RoomItem } from './room/RoomItem'
 
@@ -14,5 +16,5 @@ export const Home = () => {
           <RoomItem />
         </div>
       </section>
-    </div>  )
+    </div>)
 }
