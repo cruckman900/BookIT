@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { RoomItem } from './room/RoomItem'
+import { RoomItem } from '../room/RoomItem'
 import { IRoom } from '@/app/backend/models/room'
 
 interface Props {
