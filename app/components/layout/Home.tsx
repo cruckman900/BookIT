@@ -3,7 +3,8 @@
 import React from 'react'
 import { RoomItem } from './room/RoomItem'
 
-export const Home = () => {
+const Home = ({ data }) => {
+
   return (
     <div>
       <section id="rooms" className="container mt-5">
@@ -13,8 +14,9 @@ export const Home = () => {
         </a>
         <div className="row mt-4">
           <RoomItem />
-          <RoomItem />
         </div>
       </section>
     </div>)
 }
+
+export default Home;
