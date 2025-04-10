@@ -11,7 +11,8 @@ const getRoom = async (id: string) => {
 }
 
 export default async function RoomDetailsPage({ params }: Props) {
-    const data = await getRoom(params?.id);
+    const { id } = await params;
+    const data = await getRoom(id);
 
     if (data?.message) {
         return <Error error={data} />
@@ -22,7 +23,8 @@ export default async function RoomDetailsPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props) {
-    const data = await getRoom(params?.id);
+    const { id } = await params;
+    const data = await getRoom(id);
 
     return {
         title: data?.room?.name,

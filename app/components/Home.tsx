@@ -1,8 +1,7 @@
-"use client"
+import React from "react";
+import RoomItem from "./room/RoomItem";
+import { IRoom } from "../backend/models/room";
 
-import React from 'react'
-import { RoomItem } from '../room/RoomItem'
-import { IRoom } from '@/app/backend/models/room'
 
 interface Props {
   data: {
@@ -10,11 +9,10 @@ interface Props {
     resPerPage: number;
     filteredRoomsCount: number;
     rooms: IRoom[];
-  }
+  };
 }
 const Home = ({ data }: Props) => {
   const { rooms, resPerPage, filteredRoomsCount } = data;
-
   return (
     <div>
       <section id="rooms" className="container mt-5">
@@ -25,14 +23,16 @@ const Home = ({ data }: Props) => {
         <div className="row mt-4">
           {rooms?.length === 0 ? (
             <div className="alert alert-danger mt-5 w-100">
-              <b>No Rooms</b>
+              <b>No Rooms.</b>
             </div>
-          ):
-            rooms?.map((room) => <RoomItem key={room._id} room={room} />)
-          }
+          ) : (
+            rooms?.map((room) => <RoomItem key={room._id as string} room={room} />)
+          )}
         </div>
       </section>
-    </div>)
-}
+    </div>
+  );
+};
+
 
 export default Home;

@@ -1,4 +1,4 @@
-import Home from "./components/layout/Home";
+import Home from "./components/Home";
 import Error from "./error";
 
 export const metadata = {
