@@ -28,7 +28,7 @@ const Home = ({ data }: Props) => {
           {location ? `${filteredRoomsCount} rooms found in ${location}` : 'All Rooms'}
         </h2>
         <Link href="/search" className="ml-2 back-to-search">
-          <i className="fa fa-arrow-left"></i> Back to Search
+          <i className="fa fa-arrow-left ml-2"></i> Back to Search
         </Link>
         <div className="row mt-4">
           {rooms?.length === 0 ? (
