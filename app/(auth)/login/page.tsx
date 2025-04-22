@@ -3,7 +3,9 @@ import React from 'react'
 
 const LoginPage = () => {
   return (
-    <Login />
+    <div>
+      <Login />
+    </div>
   );
 };
 
