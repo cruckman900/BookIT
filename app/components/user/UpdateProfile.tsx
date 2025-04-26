@@ -1,19 +1,26 @@
 "use client"
 
-import { useUpdateProfileMutation } from '@/redux/api/userApi';
-import { useAppSelector } from '@/redux/hooks';
+import { useLazyUpdateSessionQuery, useUpdateProfileMutation } from '@/redux/api/userApi';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import ButtonLoader from '../layout/ButtonLoader';
+import { setUser } from '@/redux/features/userSlice';
 
 const UpdateProfile = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
 
     const router = useRouter();
+    const dispatch = useAppDispatch();
 
     const { user: currentUser } = useAppSelector((state) => state.auth);
 
     const [updateProfile, { isLoading, isSuccess, error }] = useUpdateProfileMutation();
+
+    const [updateSession, { data }] = useLazyUpdateSessionQuery();
+
+    if (data) dispatch(setUser(data?.user));
 
     useEffect(() => {
         if (currentUser) {
@@ -27,6 +34,9 @@ const UpdateProfile = () => {
         }
 
         if (isSuccess) {
+            // @ts-ignore
+            updateSession();
+
             router.refresh();
         }
     }, [currentUser, error, isSuccess]);
@@ -72,7 +82,9 @@ const UpdateProfile = () => {
                         />
                     </div>
 
-                    <button type="submit" className="btn form-btn w-100 py-2">UPDATE</button>
+                    <button type="submit" className="btn form-btn w-100 py-2" disabled={isLoading}>
+                        {isLoading ? <ButtonLoader /> : 'UPDATE'}
+                    </button>
                 </form>
             </div>
         </div>
