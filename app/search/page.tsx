@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from '../components/Search'
+import Search from '@/components/Search'
 
 export const metadata = {
     title: "Search Rooms",

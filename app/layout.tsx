@@ -6,8 +6,8 @@ import "./globals.css";
 import { Head } from "./head";
 import Script from "next/script";
 import { GlobalProvider } from "./GlobalProvider";
-import { Header } from './components/layout/Header';
-import { Footer } from './components/layout/Footer';
+import { Header } from '../components/layout/Header';
+import { Footer } from '../components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] })
 

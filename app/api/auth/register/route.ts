@@ -1,5 +1,5 @@
-import dbConnect from '@/app/backend/config/dbConnect'
-import { registerUser } from '@/app/backend/controllers/authControllers';
+import dbConnect from '@/backend/config/dbConnect'
+import { registerUser } from '@/backend/controllers/authControllers';
 import { createEdgeRouter } from 'next-connect'
 import { NextRequest } from 'next/server'
 

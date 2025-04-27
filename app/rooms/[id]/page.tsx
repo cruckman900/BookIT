@@ -1,4 +1,4 @@
-import { RoomDetails } from "@/app/components/room/RoomDetails";
+import { RoomDetails } from "@/components/room/RoomDetails";
 import Error from "@/app/error";
 
 interface Props {
