@@ -1,5 +1,5 @@
-import dbConnect from "@/app/backend/config/dbConnect";
-import User, { IUser } from "@/app/backend/models/user";
+import dbConnect from "@/backend/config/dbConnect";
+import User, { IUser } from "@/backend/models/user";
 import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -65,6 +65,9 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
 
                 return session;
             },
+        },
+        pages: {
+            signIn: "/login"
         },
         secret: process.env.NEXTAUTH_SECRET,
     });
