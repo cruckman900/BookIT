@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from "next/image"
 import StarRatings from 'react-star-ratings'
-import { IRoom } from '@/app/backend/models/room'
+import { IRoom } from '@/backend/models/room'
 import Link from 'next/link'
 
 interface Props {

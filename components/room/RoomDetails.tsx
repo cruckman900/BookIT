@@ -1,6 +1,6 @@
 'use client'
 
-import { IRoom } from '@/app/backend/models/room'
+import { IRoom } from '@/backend/models/room'
 import React from 'react'
 import StarRatings from "react-star-ratings"
 import RoomImageSlider from './RoomImageSlider'

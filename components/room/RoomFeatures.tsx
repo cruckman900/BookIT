@@ -1,4 +1,4 @@
-import { IRoom } from '@/app/backend/models/room'
+import { IRoom } from '@/backend/models/room'
 import React from 'react'
 
 interface Props {
