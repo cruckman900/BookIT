@@ -1,3 +1,4 @@
+import UserSidebar from '@/components/layout/UserSidebar';
 import React, { ReactNode } from 'react'
 
 interface Props {
@@ -13,7 +14,9 @@ const UserLayout = ({ children }: Props) => {
 
         <div className="container">
             <div className="row justify-content-around">
-                <div className="col-12 col-lg-3"></div>
+                <div className="col-12 col-lg-3">
+                    <UserSidebar />
+                </div>
                 <div className="col-12 col-lg-8 user-dashboard">{children}</div>
             </div>
         </div>
