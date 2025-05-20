@@ -1,4 +1,4 @@
-import Room, { IRoom } from "../app/backend/models/room";
+import Room, { IRoom } from "../backend/models/room";
 import mongoose, { Model } from "mongoose";
 import { rooms } from "./data";
 // require("dotenv").config({ path: 'next.config.js });
