@@ -24,6 +24,7 @@
     "nodemailer": "^6.10.1",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
+    "react-datepicker": "^8.3.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "react-js-pagination": "^3.0.3",
